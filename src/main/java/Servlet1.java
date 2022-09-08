@@ -45,6 +45,7 @@ public class Servlet1 extends HttpServlet {
 		// TODO Auto-generated method stub
 		String parametro1 = request.getParameter("parametro1");
 		System.out.println("Recibiendo Peticion con metodo POST");
+		response.sendRedirect("main.jsp");
 	}
 
 }
