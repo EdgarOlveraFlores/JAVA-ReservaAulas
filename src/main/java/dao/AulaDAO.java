@@ -155,4 +155,32 @@ public class AulaDAO {
 			sessFact.close();
 		}
 	}
+	public List<Aula> getAulas(){
+		List<Aula> aulas = new ArrayList<Aula>();
+		SessionFactory sessFact = HibernateUtil.getSessionFactory();
+		Session session = sessFact.getCurrentSession();
+		Transaction tr = null;
+		
+		try {
+			tr = session.beginTransaction();
+			Query<Aula> query = (Query<Aula>)session.createQuery("SELECT a FROM Aula a");
+			aulas = query.list();
+			
+			tr.commit();
+			
+			return true;
+			
+		}catch( Exception e){
+			if (tr != null) {
+				tr.rollback();
+			}
+			e.printStackTrace();
+
+		}
+		finally {
+			session.close();
+			sessFact.close();
+		}
+		return aulas;
+	}
 }

@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +23,16 @@
 				<input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required autofocus/><br>
 				<label for="password">Password</label>
 				<input type="password" class="form-control" id="password" name="password" plaveholder="Password" required/><br>
+				<input type="hidden" name="action" value="login" />
 				<div class="p-4 d-flex flex-rol justify-content-around">
 					<input type="submit" value="Login" class="btn btn-primary"/>
 				</div>
 			</form>
+			<c:if test="${message != null}">
+				<div class="alert alert-danger text-center" role="alert">
+					${message}
+				</div>
+			</c:if>
 		</div>
 	</div>
 </main>

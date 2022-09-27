@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>Servlet2</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UsuarioController</servlet-name>
+  	<display-name>UsuarioController</display-name>
+  	<description></description>
+  	<servlet-class>controller.UsuarioController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Servlet1</servlet-name>
   	<url-pattern>/Servlet1</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>Servlet2</servlet-name>
   	<url-pattern>/Servlet2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UsuarioController</servlet-name>
+  	<url-pattern>/UsuarioController</url-pattern>
   </servlet-mapping>
 </web-app>
