@@ -1,14 +1,34 @@
+
+<!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
 <body>
-
-<h2>Hello Mi mundo!</h2>
-
-<% int numero=5; %>
-
-<form method="POST" action="Servlet1">
-	<input type="text" value="parametro1"/>
-	<input type="submit" value="Enviar"/>
-</form>
-<p>El valor del numero es: <%= numero %></p>
+<main class="p-4 d-flex flex-column align-items-center">
+	<div style="width: 40vw;">
+		<img style="width: 40vw; height:20vw;" src:"img/aula.jpg" alt="aula"/>
+	</div>
+	<div class="card" style="sidth:40vw;">
+		<div class="card-body">
+			<form method="post" class="pb-4">
+				<h3 class="text-center">Iniciar sesion</h3>
+				<label for="username">Nombre de usuario</label>
+				<input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required autofocus/><br>
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password" plaveholder="Password" required/><br>
+				<div class="p-4 d-flex flex-rol justify-content-around">
+					<input type="submit" value="Login" class="btn btn-primary"/>
+				</div>
+			</form>
+		</div>
+	</div>
+</main>
 </body>
 </html>

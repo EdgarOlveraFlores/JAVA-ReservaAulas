@@ -1,6 +1,6 @@
 <%@ page import="java.util.Date" %>
 <%@ include file="util.jsp"%>
-<%@ taglib uti="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uti="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,5 +16,8 @@
 	<c:if test="${numero>0}">
 		<p> El numero es mayor que 0  </p>
 	</c:if>
+	
+	<p>El parametro de sesion definido es: ${parametroSesion2}</p>
+	<p>El parametro de respuesta definido es: ${nuevoParametroRespuesta}</p>
 </body>
 </html>
