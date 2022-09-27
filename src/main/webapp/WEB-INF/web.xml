@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>Servlet1</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Servlet2</servlet-name>
+  	<display-name>Servlet2</display-name>
+  	<description></description>
+  	<servlet-class>Servlet2</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Servlet1</servlet-name>
   	<url-pattern>/Servlet1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Servlet2</servlet-name>
+  	<url-pattern>/Servlet2</url-pattern>
   </servlet-mapping>
 </web-app>
