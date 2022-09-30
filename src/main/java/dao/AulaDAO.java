@@ -155,7 +155,7 @@ public class AulaDAO {
 			sessFact.close();
 		}
 	}
-	public List<Aula> getAulas(){
+	public List<Aula> getAulas(String filter){
 		List<Aula> aulas = new ArrayList<Aula>();
 		SessionFactory sessFact = HibernateUtil.getSessionFactory();
 		Session session = sessFact.getCurrentSession();
@@ -163,7 +163,14 @@ public class AulaDAO {
 		
 		try {
 			tr = session.beginTransaction();
-			Query<Aula> query = (Query<Aula>)session.createQuery("SELECT a FROM Aula a");
+			String sql = "SELECT a FROM Aula a";
+			
+			
+			if (filter != null && !filter.equals("")) {
+				sql += "where descripcion like '%" + filter + "%'";
+			}
+			
+			Query<Aula> query = (Query<Aula>)session.createQuery(sql);
 			aulas = query.list();
 			
 			tr.commit();

@@ -56,7 +56,7 @@ public class UsuarioController extends HttpServlet {
 		
 		Usuario logged = uDao.login(usuario, password);
 		
-		List<Aula> aulas = aDao.getAulas();
+		List<Aula> aulas = aDao.getAulas("");
 		
 		if (logged != null) {
 			session.setAttribute("user", logged);
