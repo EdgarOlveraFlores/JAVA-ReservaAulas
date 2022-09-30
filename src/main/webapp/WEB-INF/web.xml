@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>controller.AulaController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReservaController</servlet-name>
+  	<display-name>ReservaController</display-name>
+  	<description></description>
+  	<servlet-class>controller.ReservaController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Servlet1</servlet-name>
   	<url-pattern>/Servlet1</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>AulaController</servlet-name>
   	<url-pattern>/AulaController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReservaController</servlet-name>
+  	<url-pattern>/ReservaController</url-pattern>
   </servlet-mapping>
 </web-app>
