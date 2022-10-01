@@ -13,7 +13,7 @@
 		<a class="navbar-brand" href="#">Aulas</a>
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="aula?action=listar">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="">Mis resrevas</a></li>
+			<li class="nav-item"><a class="nav-link" href="reserva?action=listar$idusuario=${user.idusuario}">Mis resrevas</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Mi perfil</a></li>
 			<c:if test="${user.perfil.equals('administrador')}">
 				<li class="nav-item dropdown">
