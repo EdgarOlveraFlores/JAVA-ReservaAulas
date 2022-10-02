@@ -19,9 +19,9 @@ public class AulaDAO {
 		Session session = sessFact.getCurrentSession();
 		
 		Transaction tr = null;
-		
+		 
 		try {
-			
+			 
 			tr = session.beginTransaction();
 			aulas = session.createQuery("SELECT a FROM Aula a", Aula.class).getResultList();
 			

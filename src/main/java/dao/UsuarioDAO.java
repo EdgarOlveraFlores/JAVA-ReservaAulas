@@ -38,7 +38,7 @@ public class UsuarioDAO {
 			session.close();
 			sessFact.close();
 		}
-	}
+	} 
 	
 	public boolean editar (int idusuario, String nombre, String password, String email, String puesto) {
 		SessionFactory sessFact = HibernateUtil.getSessionFactory();

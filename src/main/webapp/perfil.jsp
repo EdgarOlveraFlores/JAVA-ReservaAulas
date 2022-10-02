@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	<main class="p-4 d-flex-column align-items-center">
+	<main class="p-4 d-flex-column align-items-center"> 
 		<div class="card" style="width: 40vw">
 			<div class="card-body">
 				<h3 class="text-center">Datos de usuario</h3>
