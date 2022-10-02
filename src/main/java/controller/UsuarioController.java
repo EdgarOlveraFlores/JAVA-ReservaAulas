@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.codec.cli.Digest;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import dao.UsuarioDAO;
 import jakarta.servlet.RequestDispatcher;
 import model.Aula;
+import model.Usuario;
 
 /**
  * Servlet implementation class UsuarioController
@@ -32,9 +34,12 @@ public class UsuarioController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(jakarta.servlet.http.HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String action = request.getParameter("action");
+		if (action.equals("editar")) {
+			editar(request, response);
+		}
 	}
 
 	/**
@@ -70,7 +75,35 @@ public class UsuarioController extends HttpServlet {
 			rd.forward(request, response);
 		}
 	}
-
+	
+	
+	protected void editar(jakarta.servlet.http.HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		jakarta.servlet.http.HttpServletRequest session = request.getSession();
+		
+		Usuario usuario = (Usuario)session.getAttribute("user");
+		int idusuario = usuario.getIdusuario();
+		String nombre = request.getParameter("nombre");
+		String password = request.getParameter("password");
+		if (!password.equals(usuario.getPassword())) {
+			password = DigestUtils.md5Hex(password).toString();
+		}
+		String email = request.getParameter("email");
+		String puesto = request.getParameter("puesto");
+		
+		boolean editado = uDao.editar(idusuario, nombre, password, email, puesto);
+		
+		if (editado) {
+			usuario.setNombre(nombre);
+			usuario.setPassword(password);
+			usuario.setEmail(email);
+			usuario.setPuesto(puesto);
+			
+			session.setAttribute("user", usuario);
+		}
+		
+		rd = request.getRequestDispatcher("/perfil.jsp");
+		rd.forward(request, response);
+	}
 }
 
 
